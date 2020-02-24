@@ -15,7 +15,8 @@
     
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
-        <title>Breaking News & Weather</title>
+    
+    <title>Breaking News & Weather</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -31,14 +32,14 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bowlby+One+SC|Concert+One|Fredoka+One|Patrick+Hand&display=swap" rel="stylesheet">
   </head>
   <body>
-    </nav>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-              <h1 class="display-4">The Latest News & Weather at your Fingertips</h1>
-              <p class="lead">TBD.........</p>
+              <h1 class="display-4">The Latest News & Weather in <%= @location %></h1>
+              <p class="lead"></p>
           </div>
       </div>
-<h1><%= @location %></h1>
+
+
     <div class="container mt-5">
       <h1>Latest Headlines!</h1>
     <p>
@@ -53,23 +54,21 @@
     <div class="foot mt-4 pt-4">
         <div class="container">
             <div class="row">
-                    <h1> In <%= @location %> it is <%= @current_temperature %> degrees and <%= @current_conditions %>. </h1>
+                    <h1> In <%= @location %> it is currently <%= @current_temperature %> degrees with <%= @current_conditions %>. </h1>
             </div>
       </div>
     </div>
     
     
     <div class="container mt-5">
-      <h1>Current & 7-day Forecast</h1>
+      <h1>7-day Forecast for <%= @location %></h1>
     </div>
     
     <p>
     <div>
     <tr><td>
     <ul>
-    <% for @weather_forecast in @forecast["daily"]["data"] %>
-      <li><%= @weather_forecast["temperatureHigh"] %></li>
-    <% end %>
+
   </ul>
 
       <div class="pricing py-4">
@@ -84,8 +83,8 @@
                         <th>Forecasted Conditions</th>
                   </tr>
                 </thead>
-                <tbody> 
-                  <tr>  # Opted for one line of whether code per day so I could drop in into the table 
+                <tbody>
+                  <tr>   
                     <tr class="table-primary">
                         <th>Tomorrow</th>
                             <td>
@@ -145,6 +144,19 @@
             </div>
           </div>
         </div>
+      </div>
+  <div class="foot mt-4 pt-4">
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+      </div>
+      <div class="col-sm-3">
+              <h6><i class="far fa-copyright"></i></h6>
+        <ul class="list-unstyled mt-3">
+        </ul>
+      </div>
+      <div class="col-sm-3">
+      </div>
       </div>
   
    

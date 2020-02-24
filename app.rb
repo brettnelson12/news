@@ -46,8 +46,6 @@ get "/news" do
 # puts forecast["daily"]["data"][2]["temperatureHigh"]
     @daily_temperature = @forecast["daily"]["data"]
     @daily_conditions = @forecast["daily"]["data"]
-    @daily_wind = []
-    @daily_humidity = []
 
 
 

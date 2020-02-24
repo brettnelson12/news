@@ -9,10 +9,8 @@ before { puts "Parameters: #{params}" }
 # enter your Dark Sky API key here
 ForecastIO.api_key = "9863419f1d57fef327f7a0e19efad68b"
 
-# News API
-url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d55a2ab8a4a249799cbd868d319821e5"
-@news = HTTParty.get(url).parsed_response.to_hash
-  @each_article = []
+
+
   
 # news is now a Hash you can pretty print (pp) and parse for your output
 
@@ -23,7 +21,11 @@ end
 
 get "/news" do
   # do everything else
+  # News API
+    url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=d55a2ab8a4a249799cbd868d319821e5"
+    @news = HTTParty.get(url).parsed_response.to_hash
     results = Geocoder.search(params["q"])
+
     @lat_long = results.first.coordinates # => [lat, long]
     @location = results.first.city
     # Define the lat and long
@@ -42,4 +44,10 @@ get "/news" do
     @daily_conditions = []
     @daily_wind = []
     @daily_humidity = []
+
+pp forecast
+
+view "news"
+view "forecast"
+
 end

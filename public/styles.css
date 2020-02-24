@@ -1,0 +1,51 @@
+.jumbotron {
+    /* Background */
+    background-attachment: fixed;
+    background-image: url(simpsons_characters_cast.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 80px;
+    color: black;
+    text-shadow: 2px 2px 2px white;
+      }
+  .category {
+    font-family:"Concert One";
+    color: yellowgreen;
+    font-size: 25px;
+    text-shadow: 1px 1px 1px black;
+  }
+  h1 {
+    font-family:"Fredoka One";
+    color:blue;
+    text-shadow: 1px 1px 1px white;
+    }
+  .middle {
+    font-family:"Concert One";
+    color:yellowgreen;
+    font-size: 25px;
+    text-shadow: 1px 1px 1px black;
+  }
+  .right {
+    font-family:"Concert One";
+    color:yellowgreen;
+    font-size: 25px;
+    text-shadow: 1px 1px 1px black;
+
+  h2 {
+    color: #fed90f;
+    text-shadow: 1px 1px 1px black;
+  }
+  .navbar {
+    background-color:lightgrey;
+  }
+  .d-inline-block.align-middle {
+    width: 160px;
+    height: auto;
+  }
+  table.table-active.table-dark.table-hover {
+    color: black;
+  ul {
+    font-family:"Russo One";
+    font-size: 20px;
+  }

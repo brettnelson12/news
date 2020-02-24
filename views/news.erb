@@ -15,15 +15,32 @@
     
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
-
-    <title>News</title>
+        <title>Breaking News & Weather</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
+    <!-- Swap out "Roboto" for the font(s) you want to use -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bowlby+One+SC|Concert+One|Fredoka+One|Patrick+Hand&display=swap" rel="stylesheet">
   </head>
   <body>
-  <h1> "What's Going on in your World Today?!?!" </h1>
+    </nav>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">The Latest News & Weather at your Fingertips</h1>
+              <p class="lead">TBD.........</p>
+          </div>
+      </div>
 <h1><%= @location %></h1>
     <div class="container mt-5">
-      <h1>Weather and News!</h1>
-
+      <h1>Latest Headlines!</h1>
     <p>
     <ul>
             <% for @each_article in @news["articles"] %>
@@ -33,36 +50,103 @@
       </p>
     </div>
     
-    <h1><%= @location %></h1>
+    <div class="foot mt-4 pt-4">
+        <div class="container">
+            <div class="row">
+                    <h1> In <%= @location %> it is <%= @current_temperature %> degrees and <%= @current_conditions %>. </h1>
+            </div>
+      </div>
+    </div>
+    
+    
     <div class="container mt-5">
-      <h1>Weather and News!</h1>
-      <p>
-            <%= @current_temperature %>
-      <%= @current_conditions %>
-      </p>
+      <h1>Current & 7-day Forecast</h1>
     </div>
     
     <p>
     <div>
-    <table class="table">
     <tr><td>
-        Your Weather Today!!
     <ul>
-    <% for @weather_forecast in @forecast[""] %>
-      <li><%= @weather_forecast %></li>
+    <% for @weather_forecast in @forecast["daily"]["data"] %>
+      <li><%= @weather_forecast["temperatureHigh"] %></li>
     <% end %>
   </ul>
-  </table>
-  </div>
-    </p>
-    <p>
-    <ul>
-    <% for news_forecast in @newslist %>
-      <li><%= news_forecast %></li>
-    <% end %>
-  </ul>
-    </p>
-    
+
+      <div class="pricing py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <table class="table table-active table-light table-hover">
+                <thead>
+                  <tr>
+                    <th></th>
+                        <th>High Temperature</th>
+                        <th>Forecasted Conditions</th>
+                  </tr>
+                </thead>
+                <tbody> 
+                  <tr>  # Opted for one line of whether code per day so I could drop in into the table 
+                    <tr class="table-primary">
+                        <th>Tomorrow</th>
+                            <td>
+                        <%= @forecast["daily"]["data"][1]["temperatureHigh"] %>  
+                        <td>
+                        <%= @forecast["daily"]["data"][1]["summary"] %>
+                            </td>
+                        </td>
+                    </tr>
+                  </tr>
+                  <tr>
+                    <tr class="table-primary">
+                        <th>2-day Forecast</th>
+                        <td><%= @forecast["daily"]["data"][2]["temperatureHigh"] %></td>
+                        <td><%= @forecast["daily"]["data"][2]["summary"] %></td>
+                    </tr>
+                  </tr>
+                  <tr>
+                    <tr class="table-primary">
+                        <th>3-day Forecast</th>
+                        <td><%= @forecast["daily"]["data"][3]["temperatureHigh"] %></td>
+                        <td><%= @forecast["daily"]["data"][3]["summary"] %></td>
+                    </tr>
+                  </tr>
+                  <tr>
+                    <tr class="table-primary">
+                        <th>4-day Forecast</th>
+                        <td><%= @forecast["daily"]["data"][4]["temperatureHigh"] %></td>
+                        <td><%= @forecast["daily"]["data"][4]["summary"] %></td>
+                    </tr>
+                  </tr>
+                  <tr>
+                    <tr class="table-primary">
+                        <th>5-day Forecast</th>
+                        <td><%= @forecast["daily"]["data"][5]["temperatureHigh"] %></td>
+                        <td><%= @forecast["daily"]["data"][5]["summary"] %></td>
+                    </tr>
+                  </tr>
+                  <tr>
+                    <tr class="table-primary">
+                        <th>6-day Forecast</th>
+                        <td><%= @forecast["daily"]["data"][6]["temperatureHigh"] %></td>
+                        <td><%= @forecast["daily"]["data"][6]["summary"] %></td>
+                    </tr>
+                  </tr>
+                    <tr>
+                    <tr class="table-primary">
+                        <th>7-day Forecast</th>
+                        <td><%= @forecast["daily"]["data"][7]["temperatureHigh"] %></td>
+                        <td><%= @forecast["daily"]["data"][7]["summary"] %></td>
+                    </tr>
+                  </tr>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  
    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

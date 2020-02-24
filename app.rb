@@ -26,6 +26,10 @@ get "/news" do
     @news = HTTParty.get(url).parsed_response.to_hash
     results = Geocoder.search(params["q"])
 
+    results = Geocoder.search(params["q"])
+    lat_long = results.first.coordinates # => [lat, long]
+    "#{lat_long[0]} #{lat_long[1]}"
+
     @lat_long = results.first.coordinates # => [lat, long]
     @location = results.first.city
     # Define the lat and long
@@ -40,14 +44,13 @@ get "/news" do
 # puts high_temperature
 # puts forecast["daily"]["data"][1]["temperatureHigh"]
 # puts forecast["daily"]["data"][2]["temperatureHigh"]
-    @daily_temperature = []
-    @daily_conditions = []
+    @daily_temperature = @forecast["daily"]["data"]
+    @daily_conditions = @forecast["daily"]["data"]
     @daily_wind = []
     @daily_humidity = []
 
-pp forecast
+
 
 view "news"
-view "forecast"
 
 end
